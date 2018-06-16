@@ -6,7 +6,7 @@ namespace Finance.DomainTests
     public class SSNTests
     {
         [Fact]
-        public void Empty_SSN_Should_Be_Created()
+        public void Empty_SSN_Should_Not_Be_Created()
         {
             //
             // Arrange

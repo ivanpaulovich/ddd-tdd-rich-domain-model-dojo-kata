@@ -1,13 +1,22 @@
-﻿namespace Finance.Domain.ValueObjects
+﻿using System.Text.RegularExpressions;
+
+namespace Finance.Domain.ValueObjects
 {
     public class SSN
     {
         public string _text { get; private set; }
+        const string RegExForValidation = @"^\d{6,8}[-|(\s)]{0,1}\d{4}$";
 
         public SSN(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
                 throw new SSNShouldNotBeEmptyException("The 'SSN' field is required");
+
+            Regex regex = new Regex(RegExForValidation);
+            Match match = regex.Match(text);
+
+            if (!match.Success)
+                throw new InvalidSSNException("Invalid SSN format. Use YYMMDDNNNN.");
 
             this._text = text;
         }

@@ -12,8 +12,9 @@ namespace Finance.DomainTests
         {
             //
             // Arrange
+            Guid customerId = Guid.NewGuid();
             Amount amount = new Amount(100.0);
-            Account sut = new Account(Guid.NewGuid());
+            Account sut = new Account(customerId);
 
             //
             // Act
@@ -23,8 +24,10 @@ namespace Finance.DomainTests
             // Assert
             Credit credit = (Credit)sut.Transactions[0];
 
+            Assert.Equal(customerId, sut.CustomerId);
             Assert.Equal(100, credit.Amount);
             Assert.Equal("Credit", credit.Description);
+            Assert.True(credit.AccountId != Guid.Empty);
         }
 
         [Fact]
