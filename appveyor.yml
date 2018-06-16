@@ -1,0 +1,5 @@
+build_script:
+- ps: .\build.ps1
+branches:
+  only: 
+  - master
