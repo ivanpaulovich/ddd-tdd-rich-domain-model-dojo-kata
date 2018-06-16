@@ -23,7 +23,7 @@ namespace Finance.DomainTests
             // Assert
             Credit credit = (Credit)sut.Transactions[0];
 
-            Assert.Equal(new Amount(100), credit.Amount);
+            Assert.Equal(100, credit.Amount);
             Assert.Equal("Credit", credit.Description);
         }
 
@@ -66,8 +66,7 @@ namespace Finance.DomainTests
             //
             // Arrange
             Account sut = new Account(Guid.NewGuid());
-            Amount amount = new Amount(100);
-            sut.Deposit(amount);
+            sut.Deposit(100);
 
             //
             // Act and Assert

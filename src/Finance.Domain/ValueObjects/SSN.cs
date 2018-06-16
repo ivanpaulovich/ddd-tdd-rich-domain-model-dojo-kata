@@ -1,13 +1,13 @@
 ﻿namespace Finance.Domain.ValueObjects
 {
-    public class PIN
+    public class SSN
     {
         public string _text { get; private set; }
 
-        public PIN(string text)
+        public SSN(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
-                throw new PINShouldNotBeEmptyException("The 'PIN' field is required");
+                throw new SSNShouldNotBeEmptyException("The 'SSN' field is required");
 
             this._text = text;
         }
@@ -17,9 +17,9 @@
             return _text.ToString();
         }
 
-        public static implicit operator PIN(string text)
+        public static implicit operator SSN(string text)
         {
-            return new PIN(text);
+            return new SSN(text);
         }
 
         public override bool Equals(object obj)
@@ -39,7 +39,7 @@
                 return obj.ToString() == _text;
             }
 
-            return ((PIN)obj)._text == _text;
+            return ((SSN)obj)._text == _text;
         }
 
         public override int GetHashCode()

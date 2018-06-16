@@ -10,15 +10,15 @@ namespace Finance.DomainTests
         {
             //
             // Arrange
-            double positive = 500;
+            double positiveAmount = 500;
 
             //
             // Act
-            Amount amount = new Amount(positive);
+            Amount amount = new Amount(positiveAmount);
 
             //
             // Assert
-            Assert.Equal(positive, amount);
+            Assert.Equal(positiveAmount, amount);
         }
 
         [Fact]
