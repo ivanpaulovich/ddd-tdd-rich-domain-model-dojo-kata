@@ -2,7 +2,7 @@
 
 namespace Finance.Domain.ValueObjects
 {
-    public class Amount
+    public sealed class Amount
     {
         private double _value;
 
@@ -14,6 +14,11 @@ namespace Finance.Domain.ValueObjects
         public override string ToString()
         {
             return _value.ToString();
+        }
+
+        public static implicit operator double(Amount value)
+        {
+            return value._value;
         }
 
         public static Amount operator -(Amount value)

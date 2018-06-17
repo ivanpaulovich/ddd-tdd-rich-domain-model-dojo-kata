@@ -1,10 +1,11 @@
 ﻿namespace Finance.Domain.Customers
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using Finance.Domain.ValueObjects;
 
-    public class Customer : IEntity, IAggregateRoot
+    public sealed class Customer : IEntity, IAggregateRoot
     {
         public Guid Id { get; }
         public Name Name { get; }

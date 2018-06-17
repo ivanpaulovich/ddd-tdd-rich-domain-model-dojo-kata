@@ -4,8 +4,14 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public class TransactionCollection : Collection<ITransaction>
+    public sealed class TransactionCollection : Collection<ITransaction>
     {
+        public ITransaction GetLastTransaction()
+        {
+            ITransaction transaction = Items[Items.Count - 1];
+            return transaction;
+        }
+
         public void Add(IEnumerable<ITransaction> transactions)
         {
             foreach (var transaction in transactions)
@@ -17,7 +23,7 @@
         public Amount GetCurrentBalance()
         {
             Amount totalAmount = 0;
-            
+
             foreach (var item in Items)
             {
                 if (item is Debit)

@@ -4,7 +4,7 @@
     using System;
     using System.Collections.ObjectModel;
 
-    public class Account : IEntity, IAggregateRoot
+    public sealed class Account : IEntity, IAggregateRoot
     {
         public Guid Id { get; }
         public Guid CustomerId { get; }
@@ -18,6 +18,13 @@
         }
 
         private TransactionCollection _transactions;
+
+        public Account(Guid id, Guid customerId, TransactionCollection transactions)
+        {
+            Id = id;
+            _transactions = transactions;
+            CustomerId = customerId;
+        }
 
         public Account(Guid customerId)
         {
@@ -51,6 +58,12 @@
         {
             Amount totalAmount = _transactions.GetCurrentBalance();
             return totalAmount;
+        }
+
+        public ITransaction GetLastTransaction()
+        {
+            ITransaction transaction = _transactions.GetLastTransaction();
+            return transaction;
         }
     }
 }

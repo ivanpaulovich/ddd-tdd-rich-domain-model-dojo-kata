@@ -1,8 +1,8 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Finance.Domain.ValueObjects
+﻿namespace Finance.Domain.ValueObjects
 {
-    public class SSN
+    using System.Text.RegularExpressions;
+
+    public sealed class SSN
     {
         public string _text { get; private set; }
         const string RegExForValidation = @"^\d{6,8}[-|(\s)]{0,1}\d{4}$";
@@ -29,6 +29,11 @@ namespace Finance.Domain.ValueObjects
         public static implicit operator SSN(string text)
         {
             return new SSN(text);
+        }
+
+        public static implicit operator string(SSN ssn)
+        {
+            return ssn._text;
         }
 
         public override bool Equals(object obj)
