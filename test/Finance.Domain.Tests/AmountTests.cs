@@ -18,7 +18,7 @@ namespace Finance.DomainTests
 
             //
             // Assert
-            Assert.Equal(positiveAmount, amount);
+            Assert.Equal<double>(positiveAmount, amount);
         }
 
         [Fact]

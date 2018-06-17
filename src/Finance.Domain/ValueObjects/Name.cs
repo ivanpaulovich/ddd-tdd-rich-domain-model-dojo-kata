@@ -1,6 +1,6 @@
 ﻿namespace Finance.Domain.ValueObjects
 {
-    public class Name
+    public sealed class Name
     {
         private string _text;
 
@@ -20,6 +20,11 @@
         public static implicit operator Name(string text)
         {
             return new Name(text);
+        }
+
+        public static implicit operator string(Name name)
+        {
+            return name._text;
         }
 
         public override bool Equals(object obj)

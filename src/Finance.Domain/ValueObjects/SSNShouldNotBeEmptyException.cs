@@ -1,6 +1,6 @@
 ﻿namespace Finance.Domain.ValueObjects
 {
-    public class SSNShouldNotBeEmptyException : DomainException
+    public sealed class SSNShouldNotBeEmptyException : DomainException
     {
         internal SSNShouldNotBeEmptyException(string message)
             : base(message)
