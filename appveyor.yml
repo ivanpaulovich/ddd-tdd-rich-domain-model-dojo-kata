@@ -1,20 +1,24 @@
-branches:
-  only: 
-  - master
+init:
+  - git config --global core.autocrlf true
+ 
+image: Visual Studio 2017
+ 
 before_build:
- - nuget restore
+- choco install opencover.portable
+- choco install codecov
+ 
 build_script:
- - msbuild /verbosity:quiet "Finance.sln"
-test_script:
- - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\xunit.runner.console.2.2.0\tools\xunit.console.x86.exe" -targetargs:"test\Finance.Domain.Tests\bin\Debug\tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[Finance.Domain*]* -[Finance.Domain.Tests*]*"
-# use codecov bash script. Requires powershell and bash to be installed, which both are on the AppVeyor machine image
-after_test:
-  - ps: |
-      $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
-      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-      bash codecov.sh -f "coverage.xml"
-# use codecov python package. Requires python to be available, which it is on AppVeyor machine image, and then we have to install the codecov package
-#after_test:
-#- "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
-#- pip install codecov
-#- codecov -f "coverage.xml"
+  - ps: .\build.ps1
+  - OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:"test --logger:trx;LogFileName=results.trx /p:DebugType=full test\Finance.Domain.Tests\Finance.Domain.Tests.csproj" -filter:"+[Finance.Domain*]* -[Finance.Domain.Tests*]*" -output:".\my_app_coverage.xml"
+  - codecov -f .\valit_coverage.xml -t $(codecov_token)
+ 
+test: off
+ 
+branches:
+  only:
+    - dev
+    - master
+ 
+cache:
+- tools -> build.cake
+- packages -> build.cake

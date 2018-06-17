@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BFD70E3B-371
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3E3A1AB4-54E9-4C12-B58C-E3D61D02234E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.DomainTests", "test\Finance.Domain.Tests\Finance.DomainTests.csproj", "{E3E81FEC-3B21-403B-BA71-D32924266A48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.DomainTests", "test\Finance.Domain.Tests\Finance.Domain.Tests.csproj", "{E3E81FEC-3B21-403B-BA71-D32924266A48}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Domain", "src\Finance.Domain\Finance.Domain.csproj", "{BDC917BA-5559-4005-B51C-BE626B9FD6D8}"
 EndProject
