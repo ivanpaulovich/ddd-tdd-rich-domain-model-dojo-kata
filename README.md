@@ -1,6 +1,6 @@
 # Small .NET Standard solution with DDD Building Blocks covered with Unit Tests [![Build status](https://ci.appveyor.com/api/projects/status/ujilt0luhnvpm4to?svg=true)](https://ci.appveyor.com/project/ivanpaulovich/ddd-tdd-rich-domain) [![codecov](https://codecov.io/gh/ivanpaulovich/ddd-tdd-rich-domain/branch/master/graph/badge.svg)](https://codecov.io/gh/ivanpaulovich/ddd-tdd-rich-domain)
 
-We desined the Finance Domain using Aggregate Roots, Entities and Value Objects and we covered the uses cases with Unit Tests, try running them. The Domain and Unit Tests projects were implemented with .NET, the classes are as closed as possible.
+We designed the Finance Domain using Aggregate Roots, Entities and Value Objects and we covered the uses cases with Unit Tests, try running them. The Domain and Unit Tests projects were implemented with .NET, the classes are as closed as possible.
 
 ## Compiling from source
 
