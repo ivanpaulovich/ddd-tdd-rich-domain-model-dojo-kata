@@ -16,10 +16,10 @@ git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
 This project was designed do cover the following use cases:
 
 1. The customer should be able to register a new account.
-2. Allow to deposit on an account.
-3. Allow to withdra on an account.
-4. Accounts can be closed only if they have zero balance.
-5. We can't withdraw more than the balance.
+2. Allow to deposit into an account.
+3. Allow to withdraw from an account.
+4. Accounts can only be closed if they have zero balance.
+5. Do not allow to withdraw more than the account balance.
 
 The following diagram shows the bounded contexts:
 
