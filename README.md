@@ -8,6 +8,7 @@ To run Acerola from source, clone this repository to your machine, compile and t
 
 ```sh
 git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
+cd ddd-tdd-rich-domain
 ./build.sh
 ```
 
