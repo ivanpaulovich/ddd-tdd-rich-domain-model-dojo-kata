@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using Finance.Domain.ValueObjects;
 
     public sealed class Customer : IEntity, IAggregateRoot
@@ -10,11 +9,11 @@
         public Guid Id { get; }
         public Name Name { get; }
         public SSN SSN { get; }
-        public ReadOnlyCollection<Guid> Accounts
+        public IReadOnlyCollection<Guid> Accounts
         {
             get
             {
-                ReadOnlyCollection<Guid> readOnly = new ReadOnlyCollection<Guid>(_accounts);
+                IReadOnlyCollection<Guid> readOnly = _accounts.GetAccountIds();
                 return readOnly;
             }
         }

@@ -2,19 +2,16 @@
 {
     using Finance.Domain.ValueObjects;
     using System;
-    using System.Collections.ObjectModel;
+    using System.Collections.Generic;
 
     public sealed class Account : IEntity, IAggregateRoot
     {
         public Guid Id { get; }
         public Guid CustomerId { get; }
-        public ReadOnlyCollection<ITransaction> Transactions
+        public IReadOnlyCollection<ITransaction> GetTransactions()
         {
-            get
-            {
-                ReadOnlyCollection<ITransaction> readOnly = new ReadOnlyCollection<ITransaction>(_transactions);
-                return readOnly;
-            }
+            IReadOnlyCollection<ITransaction> readOnly = _transactions.GetTransactions();
+            return readOnly;
         }
 
         private TransactionCollection _transactions;
