@@ -19,6 +19,7 @@ namespace Finance.DomainTests
             Assert.Equal(Guid.Empty, credit.AccountId);
             Assert.Equal(100, credit.Amount);
             Assert.Equal(DateTime.Today, credit.TransactionDate);
+            Assert.Equal("Credit", credit.Description);
         }
     }
 }
