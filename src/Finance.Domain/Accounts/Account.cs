@@ -6,8 +6,8 @@
 
     public sealed class Account : IEntity, IAggregateRoot
     {
-        public Guid Id { get; }
-        public Guid CustomerId { get; }
+        public Guid Id { get; private set; }
+        public Guid CustomerId { get; private set; }
         public IReadOnlyCollection<ITransaction> GetTransactions()
         {
             IReadOnlyCollection<ITransaction> readOnly = _transactions.GetTransactions();
@@ -15,13 +15,6 @@
         }
 
         private TransactionCollection _transactions;
-
-        public Account(Guid id, Guid customerId, TransactionCollection transactions)
-        {
-            Id = id;
-            _transactions = transactions;
-            CustomerId = customerId;
-        }
 
         public Account(Guid customerId)
         {
@@ -61,6 +54,17 @@
         {
             ITransaction transaction = _transactions.GetLastTransaction();
             return transaction;
+        }
+
+        private Account() { }
+
+        public static Account Load(Guid id, Guid customerId, TransactionCollection transactions)
+        {
+            Account account = new Account();
+            account.Id = id;
+            account.CustomerId = customerId;
+            account._transactions = transactions;
+            return account;
         }
     }
 }

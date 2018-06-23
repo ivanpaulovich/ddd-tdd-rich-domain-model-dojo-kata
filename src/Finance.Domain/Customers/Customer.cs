@@ -6,9 +6,9 @@
 
     public sealed class Customer : IEntity, IAggregateRoot
     {
-        public Guid Id { get; }
-        public Name Name { get; }
-        public SSN SSN { get; }
+        public Guid Id { get; private set; }
+        public Name Name { get; private set; }
+        public SSN SSN { get; private set; }
         public IReadOnlyCollection<Guid> Accounts
         {
             get
@@ -18,16 +18,8 @@
             }
         }
 
-        private AccountCollection _accounts;
-
-        public Customer(Guid id, Name name, SSN ssn, AccountCollection accounts)
-        {
-            Id = id;
-            Name = name;
-            SSN = ssn;
-            _accounts = accounts;
-        }
-
+        private AccountCollection _accounts;       
+                
         public Customer(SSN ssn, Name name)
         {
             Id = Guid.NewGuid();
@@ -39,6 +31,18 @@
         public void Register(Guid accountId)
         {
             _accounts.Add(accountId);
+        }
+
+        private Customer() { }
+
+        public static Customer Load(Guid id, Name name, SSN ssn, AccountCollection accounts)
+        {
+            Customer customer = new Customer();
+            customer.Id = id;
+            customer.Name = name;
+            customer.SSN = ssn;
+            customer._accounts = accounts;
+            return customer;
         }
     }
 }
