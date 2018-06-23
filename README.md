@@ -14,15 +14,15 @@ cd ddd-tdd-rich-domain
 
 ## :construction_worker: Use cases
 
-This project was designed do cover the following use cases:
+This project was designed do cover the following use cases and requirements:
 
-1. The customer should be able to register a new account.
-2. Allow to deposit into an account.
-3. Allow to withdraw from an account.
-4. Accounts can only be closed if they have zero balance.
-5. Do not allow to withdraw more than the account balance.
-
-The following diagram shows the bounded contexts:
+1. The customer can register a new account.
+2. Allow to deposit into an existing account.
+3. Allow to withdraw from an existing account.
+4. Accounts can be closed only if they have zero balance.
+5. Accounts does not allow to withdraw more than the current account balance.
+6. Allow to get the account details.
+7. Allow to get the customer details.
 
 ## :memo: Good to know
 
