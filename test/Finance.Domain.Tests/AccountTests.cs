@@ -4,6 +4,7 @@ namespace Finance.DomainTests
     using Finance.Domain.ValueObjects;
     using Finance.Domain.Accounts;
     using System;
+    using Moq;
 
     public class AccountTests
     {
@@ -108,6 +109,28 @@ namespace Finance.DomainTests
             var transactions = sut.GetTransactions();
 
             Assert.Equal(3, transactions.Count); 
+        }
+
+        [Fact]
+        public void Account_Should_Be_Loaded()
+        {
+            //
+            // Arrange
+            TransactionCollection transactions = new TransactionCollection();
+            transactions.Add(new Debit(Guid.Empty, 100));
+
+            //
+            // Act
+            Account account = Account.Load(
+                Guid.Empty,
+                Guid.Empty,
+                transactions);
+
+            //
+            // Assert
+            Assert.Single(account.GetTransactions());
+            Assert.Equal(Guid.Empty, account.Id);
+            Assert.Equal(Guid.Empty, account.CustomerId);
         }
     }
 }

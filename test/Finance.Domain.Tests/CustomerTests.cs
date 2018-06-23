@@ -37,7 +37,7 @@ namespace Finance.DomainTests
 
             Guid customerId = Guid.NewGuid();
 
-            Customer customer = new Customer(
+            Customer customer = Customer.Load(
                 customerId,
                 "Sammy Fredriksson",
                 "741214-3054",
