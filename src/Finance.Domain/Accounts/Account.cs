@@ -39,7 +39,8 @@
         public void Withdraw(Amount amount)
         {
             if (_transactions.GetCurrentBalance() < amount)
-                throw new InsuficientFundsException($"The account {Id} does not have enough funds to withdraw {amount}.");
+                throw new InsuficientFundsException(
+                $"The account {Id} does not have enough funds to withdraw {amount}.");
 
             Debit debit = new Debit(Id, amount);
             _transactions.Add(debit);
@@ -48,7 +49,8 @@
         public void Close()
         {
             if (_transactions.GetCurrentBalance() > 0)
-                throw new AccountCannotBeClosedException($"The account {Id} can not be closed because it has funds.");
+                throw new AccountCannotBeClosedException(
+                $"The account {Id} can not be closed because it has funds.");
         }
 
         public Amount GetCurrentBalance()
