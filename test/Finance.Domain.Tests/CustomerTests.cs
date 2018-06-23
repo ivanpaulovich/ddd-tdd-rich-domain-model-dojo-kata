@@ -46,7 +46,6 @@ namespace Finance.DomainTests
             Assert.Equal(customerId, customer.Id);
             Assert.Equal("Sammy Fredriksson", customer.Name);
             Assert.Equal("741214-3054", customer.SSN);
-            Assert.Equal(accounts, customer.Accounts);
         }
     }
 }

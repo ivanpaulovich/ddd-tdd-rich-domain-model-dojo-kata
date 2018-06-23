@@ -22,7 +22,7 @@ namespace Finance.DomainTests
 
             //
             // Assert
-            Credit credit = (Credit)sut.Transactions[0];
+            Credit credit = (Credit)sut.GetLastTransaction();
 
             Assert.Equal(customerId, sut.CustomerId);
             Assert.Equal(100, credit.Amount);
@@ -90,6 +90,24 @@ namespace Finance.DomainTests
             // Act and Assert
             Assert.Throws<InsuficientFundsException>(
                 () => sut.Withdraw(5000));
+        }
+
+        [Fact]
+        public void Account_With_Three_Transactions_Should_Be_Consistent()
+        {
+            //
+            // Arrange
+            Account sut = new Account(Guid.NewGuid());
+            sut.Deposit(200);
+            sut.Withdraw(100);
+            sut.Deposit(50);
+
+            //
+            // Act and Assert
+
+            var transactions = sut.GetTransactions();
+
+            Assert.Equal(3, transactions.Count); 
         }
     }
 }
