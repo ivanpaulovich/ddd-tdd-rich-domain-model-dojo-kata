@@ -4,7 +4,7 @@
 
     public sealed class SSN
     {
-        public string _text { get; private set; }
+        private string _text;
         const string RegExForValidation = @"^\d{6,8}[-|(\s)]{0,1}\d{4}$";
 
         public SSN(string text)
@@ -18,7 +18,7 @@
             if (!match.Success)
                 throw new InvalidSSNException("Invalid SSN format. Use YYMMDDNNNN.");
 
-            this._text = text;
+            _text = text;
         }
 
         public override string ToString()
