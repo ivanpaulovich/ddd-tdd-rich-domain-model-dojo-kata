@@ -4,7 +4,7 @@ We designed the Finance Domain using Aggregate Roots, Entities and Value Objects
 
 ## :gem: Compiling from source
 
-To run Acerola from source, clone this repository to your machine, compile and test it:
+Clone this repository to your machine, compile and test it:
 
 ```sh
 git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
@@ -31,10 +31,8 @@ Aggregate Roots
 2. Account
 
 Entities
-1. Customer
-2. Account
-3. Credit
-3. Debit
+1. Credit
+2. Debit
 
 Value Objects
 1. SSN
