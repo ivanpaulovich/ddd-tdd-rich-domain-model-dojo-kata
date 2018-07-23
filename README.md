@@ -26,18 +26,7 @@ This project was designed do cover the following use cases and requirements:
 
 ## :memo: Good to know
 
-Aggregate Roots
-1. Customer
-2. Account
-
-Entities
-1. Credit
-2. Debit
-
-Value Objects
-1. SSN
-2. Name
-3. Amount
+![Caju](https://raw.githubusercontent.com/ivanpaulovich/ddd-tdd-rich-domain/master/docs/model.png)
 
 ## :computer: Tech stuff
 
