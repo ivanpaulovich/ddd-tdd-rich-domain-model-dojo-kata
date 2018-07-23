@@ -24,7 +24,7 @@ This project was designed do cover the following use cases and requirements:
 6. Allow to get the account details.
 7. Allow to get the customer details.
 
-## :memo: Good to know
+## :memo: The Domain Model
 
 ![Domain Model](https://raw.githubusercontent.com/ivanpaulovich/ddd-tdd-rich-domain/master/docs/ddd-tdd-rich-domain-model.png)
 
