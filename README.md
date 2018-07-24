@@ -28,7 +28,7 @@ This project was designed do cover the following use cases and requirements:
 
 ![Domain Model](https://raw.githubusercontent.com/ivanpaulovich/ddd-tdd-rich-domain/master/docs/ddd-tdd-rich-domain-model.png)
 
-## :alien: Tech stuff
+## :computer: Tech stuff
 
 * .NET Core / Standard
 * xUnit
