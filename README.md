@@ -36,7 +36,7 @@ This project was designed do cover the following use cases and requirements:
 
 ## :alien: Kata
 
-Build a Domain from tests using DDD Building Blocks like Aggregate Roots, Entities and Value Objects.
+Build a Domain from tests using DDD Building Blocks like Aggregate Roots, Entities and Value Objects with the help of kata-initial folder files.
 
 ### :alien: Are expected a Model with Two Aggregates
 
