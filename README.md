@@ -93,6 +93,11 @@ public sealed class Name
 
         _text = text;
     }
+
+    public override bool Equals(object obj)
+    {
+        return ((Name)obj)._text == _text;
+    }
 }
 ```
 
