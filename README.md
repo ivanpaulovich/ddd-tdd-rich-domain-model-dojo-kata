@@ -28,8 +28,72 @@ This project was designed do cover the following use cases and requirements:
 
 ![Domain Model](https://raw.githubusercontent.com/ivanpaulovich/ddd-tdd-rich-domain/master/docs/ddd-tdd-rich-domain-model.png)
 
-## :computer: Tech stuff
+## :alien: Tech stuff
 
 * .NET Core / Standard
 * xUnit
 * Moq
+
+## :alien: Kata
+
+Build a Domain from tests using DDD Building Blocks like Aggregate Roots, Entities and Value Objects.
+
+### :alien: Are expected a Model with Two Aggregates
+
+* Account, TransactionCollection, Credit, Debit.
+* Customer, AccountCollection.
+* Amount, Name, SSN
+
+### :alien: Create a Test Class for every object
+### :alien: Start with the Value Objects like Name
+
+```
+public class NameTests
+{
+    [Fact]
+    public void Empty_Name_Should_Be_Created()
+    {
+        //
+        // Arrange
+        string empty = string.Empty;
+
+        //
+        // Act and Assert
+        Assert.Throws<NameShouldNotBeEmptyException>(
+            () => new Name(empty));
+    }
+
+    [Fact]
+    public void Full_Name_Shoud_Be_Created()
+    {
+        //
+        // Arrange
+        string valid = "Ivan Paulovich";
+
+        //
+        // Act
+        Name name = new Name(valid);
+
+        //
+        // Assert
+        Assert.Equal(new Name(valid), name);
+    }
+}
+```
+
+```
+public sealed class Name
+{
+    private string _text;
+
+    public Name(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            throw new NameShouldNotBeEmptyException("The 'Name' field is required");
+
+        _text = text;
+    }
+}
+```
+
+### :alien: Continue the design with Customer and Account
