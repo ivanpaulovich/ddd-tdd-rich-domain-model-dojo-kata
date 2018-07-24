@@ -98,7 +98,7 @@ public sealed class Name
 
 ### :alien: Continue to design the Model with the Customer and Account aggregates
 
-* It is important that an Aggregate is not coupled to each other
+* It is important that an Aggregate is not coupled to another aggregate.
 * Value Objects are immutable.
 * Entities have Ids.
 * Aggregate are Entities that control the transaction consistency.
