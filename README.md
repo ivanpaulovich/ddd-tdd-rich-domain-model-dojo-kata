@@ -45,7 +45,7 @@ Build a Domain from tests using DDD Building Blocks like Aggregate Roots, Entiti
 * Amount, Name, SSN
 
 ### :alien: Create a Test Class for every object
-### :alien: Start with the Value Objects like Name
+### :alien: Start with the Value Objects like Name, SSN or Amount
 
 ```
 public class NameTests
@@ -96,4 +96,9 @@ public sealed class Name
 }
 ```
 
-### :alien: Continue the design with Customer and Account
+### :alien: Continue to design the Model with the Customer and Account aggregates
+
+* It is important that an Aggregate is not coupled to each other
+* Value Objects are immutable.
+* Entities have Ids.
+* Aggregate are Entities that control the transaction consistency.
