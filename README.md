@@ -47,7 +47,7 @@ Build a Domain from tests using DDD Building Blocks like Aggregate Roots, Entiti
 ### :alien: Create a Test Class for every object
 ### :alien: Start with the Value Objects like Name, SSN or Amount
 
-```
+```csharp
 public class NameTests
 {
     [Fact]
@@ -81,7 +81,7 @@ public class NameTests
 }
 ```
 
-```
+```csharp
 public sealed class Name
 {
     private string _text;
