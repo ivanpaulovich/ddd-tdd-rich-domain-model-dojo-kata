@@ -12,33 +12,8 @@
             _text = text;
         }
 
-        public static implicit operator Name(string text)
-        {
-            return new Name(text);
-        }
-
-        public static implicit operator string(Name name)
-        {
-            return name._text;
-        }
-
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj is string)
-            {
-                return obj.ToString() == _text;
-            }
-
             return ((Name)obj)._text == _text;
         }
     }

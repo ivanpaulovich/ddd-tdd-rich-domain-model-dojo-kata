@@ -7,4 +7,9 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Accounts\" />
+    <Folder Include="Customers\" />
+  </ItemGroup>
+
 </Project>
