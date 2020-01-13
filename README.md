@@ -9,7 +9,7 @@ Clone this repository to your machine, compile and test it:
 ```sh
 git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
 cd ddd-tdd-rich-domain
-./build.sh
+dotnet test
 ```
 
 ## :construction_worker: Use cases
@@ -43,6 +43,8 @@ Build a Rich Domain from tests using DDD Building Blocks like Aggregate Roots, E
 * Credit and Debit Entities.
 * Amount, Name and SSN Value Objects.
 
-### :alien: Create a Test Class for the first use case.
-### :alien: Then begin with the implementation.
-### :alien: Refactor and Repeat for the next use case.
+### :alien: Create a Test Class for the Register use case.
+### :alien: Then begin with the domain implementation.
+### :alien: Refactor the code.
+### :alien: Add more tests and continue with the implementation.
+### :alien: Refactor and Repeat.
